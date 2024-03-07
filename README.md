@@ -26,7 +26,7 @@ package main
 
 import (
     "fmt"
-    "path/to/hashkey" // replace with the actual import path
+    "github.com/A2Y-D5L/hashkey"
 )
 
 func main() {
@@ -40,7 +40,6 @@ func main() {
 ```
 
 #### Generate a uint64
-
 
 ```go
 package main
