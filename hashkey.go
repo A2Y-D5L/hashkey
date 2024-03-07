@@ -5,6 +5,7 @@ import (
 	"hash/fnv"
 )
 
+// String returns a hashkey for the given string
 func String(s string) (string, error) {
 	h := fnv.New64a()
 	if _, err := h.Write([]byte(s)); err != nil {
