@@ -1,4 +1,4 @@
-# [A2Y-D5L](github.com/A2Y-D5L/hashkey) / hashkey
+# [A2Y-D5L](https://github.com/A2Y-D5L) / hashkey
 
 `hashkey` provides a simple, concurrency-safe way to generate deterministic hash keys from strings. It uses the FNV-1a algorithm for hashing.
 
