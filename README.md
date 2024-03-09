@@ -1,6 +1,15 @@
 # [A2Y-D5L](https://github.com/A2Y-D5L) / hashkey
 
-`hashkey` provides a simple, concurrency-safe way to generate deterministic hash keys from strings. It uses the FNV-1a algorithm for hashing.
+[![Go Reference](https://pkg.go.dev/badge/github.com/A2Y-D5L/hashkey.svg)](https://pkg.go.dev/github.com/A2Y-D5L/hashkey)
+[![Go Report Card](https://goreportcard.com/badge/github.com/A2Y-D5L/hashkey)](https://goreportcard.com/report/github.com/A2Y-D5L/hashkey)
+
+`hashkey` provides a simple, concurrency-safe way to generate deterministic hash keys from strings. Hashes are produced using the FNV-1a algorithm implemented in the Go standard library at [`hash/fnv`](https://pkg.go.dev/hash/fnv).
+
+##### NOTE:
+>
+> The FNV hash was designed for fast hash table and checksum use, not cryptography.
+> 
+>  — [Fowler–Noll–Vo hash function - Wikipedia](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#Non-cryptographic_hash)
 
 ## Installation
 
@@ -30,13 +39,12 @@ import (
 )
 
 func main() {
-    hash, err := hashkey.String("example")
+    hash, err := hashkey.String("Hello there.")
     if err != nil {
-        fmt.Println("Error generating hash:", err)
+        fmt.Println("Error generating hashkey:", err)
         return
     }
-    fmt.Println("Hexadecimal hash key:", hash)
-}
+    fmt.Printf("String hash key: \"%s\"\n", hash) // -> String hash key: "892362dd056bbf55"
 ```
 
 #### Generate a uint64
@@ -50,12 +58,12 @@ import (
 )
 
 func main() {
-    hash, err := hashkey.Uint64("example")
+    hash, err := hashkey.Uint64("General Kenobi! You are a bold one.")
     if err != nil {
-        fmt.Println("Error generating hash:", err)
+        fmt.Println("Error generating hashkey:", err)
         return
     }
-    fmt.Println("Uint64 hash key:", hash)
+    fmt.Printf("Uint64 hash key: %x\n", hash) // -> Uint64 hash key: 0x58d72f7088dae07
 }
 ```
 
